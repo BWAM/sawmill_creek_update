@@ -1,0 +1,168 @@
+CHEM_PARAMETER_PCODE,CHEM_PARAMETER_NAME,CHEM_PARAMETER_UNIT,CHEM_PARAMETER_UNIT_NOSP,CHEM_PARAMETER_FRACTION,CHEM_PARAMETER_SOURCE,CHEM_PARAMETER_NOTES,stayCALM_parameter,stayCALM_units,stayCALM_fraction
+1,"1,2-DICHLOROETHANE-D4",%,percent,TOTAL,LAB,,,percent,total
+2,"1,2-DICHLOROETHANE-D4",µg/L,ug/L,TOTAL,LAB,,,ug/l,total
+3,1-BROMO-4-FLUOROBENZENE BROMOFLUOROBENZENE),%,percent,TOTAL,LAB,DBP lab surrogate parameter (not flagged),,percent,total
+4,"2,3-DIBROMOPROPIONIC ACID",%,percent,TOTAL,LAB,DBP lab surrogate parameter (not flagged),,percent,total
+5,"ACIDITY, HYDROGEN ION (H+)",NA,NA,,LAB,Different from pH.,,na,na
+6,"ALKALINITY, TOTAL (AS CACO3)",mg/L,mg/L,TOTAL,LAB,,,mg/l,total
+7,ALUMINUM,µg/L,ug/L,DISSOLVED,LAB,,aluminum,ug/l,dissolved
+8,ALUMINUM,µg/L,ug/L,TOTAL,LAB,,aluminum,ug/l,total
+9,ANATOXIN-A,µg/L,ug/L,,LAB,,,ug/l,na
+10,APPARENT COLOR,color units,color units,TOTAL,LAB,,,color units,total
+11,ARSENIC,µg/L,ug/L,DISSOLVED,LAB,,,ug/l,dissolved
+12,ARSENIC,µg/L,ug/L,TOTAL,LAB,,,ug/l,total
+13,BENZENE,mg/L,mg/L,TOTAL,LAB,,,mg/l,total
+14,BMAA (BETA-METHYL-AMINO-(L)-ALANINE),µg/L,ug/L,,LAB,,,ug/l,na
+15,BORON,µg/L,ug/L,TOTAL,LAB,,,ug/l,total
+16,BROMODICHLOROMETHANE,µg/L,ug/L,TOTAL,LAB,,,ug/l,total
+17,BROMOFORM,µg/L,ug/L,TOTAL,LAB,,,ug/l,total
+18,CADMIUM,µg/L,ug/L,DISSOLVED,LAB,,cadmium,ug/l,dissolved
+19,CADMIUM,µg/L,ug/L,TOTAL,LAB,,cadmium,ug/l,total
+20,CALCIUM,mg/L,mg/L,TOTAL,LAB,,calcium,mg/l,total
+21,CALCIUM,µg/L,ug/L,TOTAL,LAB,,calcium,ug/l,total
+22,"CARBON, DISSOLVED ORGANIC (DOC)",mg/L,mg/L,DISSOLVED,LAB,,,mg/l,dissolved
+23,"CARBON, TOTAL",mg/L,mg/L,TOTAL,LAB,,,mg/l,total
+24,"CARBON, TOTAL (DISSOLVED FRACTION)",mg/L,mg/L,DISSOLVED,LAB,Created for TOTAL CARBON (DISSOLVED) in 2015 samples with both T and D components present.,,mg/l,dissolved
+25,"CARBON, TOTAL ORGANIC",mg/L,mg/L,TOTAL,LAB,,,mg/l,total
+26,"CARBON, TOTAL ORGANIC (DISSOLVED FRACTION)",mg/L,mg/L,DISSOLVED,LAB,"Results in DB have different analytical method from those of CARBON, DISSOLVED ORGANIC (DOC).",,mg/l,dissolved
+27,CHLORIDE,mg/L,mg/L,TOTAL,LAB,,chloride,mg/l,total
+28,CHLORODIBROMOMETHANE,µg/L,ug/L,TOTAL,LAB,,,ug/l,total
+29,CHLOROFORM,µg/L,ug/L,TOTAL,LAB,,,ug/l,total
+30,CHLOROMETHANE,µg/L,ug/L,TOTAL,LAB,,,ug/l,total
+31,CHLOROPHYLL A,µg/L,ug/L,TOTAL,LAB,,,ug/l,total
+32,CHLOROPHYLL A (PROBE),RFU,RFU,,IN-SITU,Measurements collected with YSI Total Algae sensor.,,rfu,na
+33,CHLOROPHYLL A (PROBE),µg/L,ug/L,,IN-SITU,Measurements collected with YSI Total Algae sensor.,,ug/l,na
+34,"CHLOROPHYLL A (PROBE) CONCENTRATION, CHLOROPHYTE (GREEN ALGAE)",µg/L,ug/L,,LAB,,,ug/l,na
+35,"CHLOROPHYLL A (PROBE) CONCENTRATION, CHRYSOPHYTA (BROWN ALGAE)",µg/L,ug/L,,LAB,,,ug/l,na
+36,"CHLOROPHYLL A (PROBE) CONCENTRATION, CRYPTOPHYTA (CRYPTOPHYTES)",µg/L,ug/L,,LAB,,,ug/l,na
+37,"CHLOROPHYLL A (PROBE) CONCENTRATION, CYANOBACTERIA (BLUEGREEN)",µg/L,ug/L,,LAB,,,ug/l,na
+38,"CHLOROPHYLL A (PROBE) CONCENTRATION, DINOPHYTA (DIATOMS)",µg/L,ug/L,,LAB,,,ug/l,na
+39,"CHLOROPHYLL A (PROBE) CONCENTRATION, TOTAL",µg/L,ug/L,,LAB,,,ug/l,na
+40,COLIFORM,cfu/100mL,cfu/100mL,TOTAL,LAB,Confirm in DB if records are TOTAL or FECAL.,total_coliform,cfu/100ml,total
+41,"COLIFORM, FECAL",cfu/100mL,cfu/100mL,,LAB,,fecal_coliform,cfu/100ml,na
+42,"COLOR, UNKNOWN",color units,color units,TOTAL,LAB,,,color units,total
+43,CONDUCTIVITY,µmhos/cm,umhos/cm,,IN-SITU,,,umhos/cm,na
+44,CONDUCTIVITY,µmhos/cm,umhos/cm,TOTAL,LAB,,,umhos/cm,total
+45,CONDUCTIVITY,µmhos/cm,umhos/cm,,UNDETERMINED,Records in DB with undetermined source.,,umhos/cm,na
+46,CONDUCTIVITY,uS/cm,uS/cm,,IN-SITU,,,us/cm,na
+47,CONDUCTIVITY,uS/cm,uS/cm,TOTAL,LAB,,,us/cm,total
+48,CONDUCTIVITY,uS/cm,uS/cm,,UNDETERMINED,Records in DB with undetermined source.,,us/cm,na
+49,COPPER,µg/L,ug/L,DISSOLVED,LAB,,,ug/l,dissolved
+50,COPPER,µg/L,ug/L,TOTAL,LAB,,,ug/l,total
+51,CYLINDROSPERMOPSIN,µg/L,ug/L,,LAB,,,ug/l,na
+52,DEPTH,m,m,,IN-SITU,,,m,na
+53,"DEPTH, BOTTOM",m,m,,IN-SITU,,,m,na
+54,"DEPTH, SECCHI DISK DEPTH",m,m,,IN-SITU,,,m,na
+55,DIBROMOACETIC ACID,µg/L,ug/L,TOTAL,LAB,,,ug/l,total
+56,DIBROMOCHLOROMETHANE,µg/L,ug/L,TOTAL,LAB,,,ug/l,total
+57,DIBROMODIFLUOROMETHANE,%,percent,TOTAL,LAB,,,percent,total
+58,DIBROMOFLUOROMETHANE,%,percent,TOTAL,LAB,DBP lab surrogate parameter (not flagged),,percent,total
+59,DICHLOROACETIC ACID,µg/L,ug/L,TOTAL,LAB,,,ug/l,total
+60,DIHYDRO-ATX-A,µg/L,ug/L,,LAB,,,ug/l,na
+61,DISSOLVED OXYGEN,mg/L,mg/L,,IN-SITU,,dissolved_oxygen,mg/l,dissolved
+62,DISSOLVED OXYGEN SATURATION,%,percent,,IN-SITU,,,percent,na
+63,DOMINANT ALGAL SPECIES,NA,NA,,LAB,,,na,na
+64,ETHYLBENZENE,mg/L,mg/L,TOTAL,LAB,,,mg/l,total
+65,FLUORIDE,mg/L,mg/L,TOTAL,LAB,,fluoride,mg/l,total
+66,HARDNESS (AS CACO3),mg/L,mg/L,TOTAL,LAB,,hardness,mg/l,total
+67,IRON,µg/L,ug/L,TOTAL,LAB,,iron,ug/l,total
+68,LEAD,µg/L,ug/L,DISSOLVED,LAB,,lead,ug/l,dissolved
+69,LEAD,µg/L,ug/L,TOTAL,LAB,,lead,ug/l,total
+70,MAGNESIUM,mg/L,mg/L,TOTAL,LAB,,magnesium,mg/l,total
+71,MAGNESIUM,µg/L,ug/L,TOTAL,LAB,,magnesium,ug/l,total
+72,MANGANESE,µg/L,ug/L,TOTAL,LAB,,manganese,ug/l,total
+73,MERCURY,ng/L,ng/L,TOTAL,LAB,,mercury,ng/l,total
+74,MERCURY,ppt,ppt,TOTAL,LAB,,mercury,ppt,total
+75,MERCURY,µg/L,ug/L,TOTAL,LAB,,mercury,ug/l,total
+76,METHYLENE CHLORIDE,µg/L,ug/L,TOTAL,LAB,,,ug/l,total
+77,MICROCYSTIN,µg/L,ug/L,,LAB,,,ug/l,na
+78,MICROCYSTIN AR,µg/L,ug/L,,LAB,,,ug/l,na
+79,MICROCYSTIN DLR,µg/L,ug/L,,LAB,,,ug/l,na
+80,MICROCYSTIN DRR,µg/L,ug/L,,LAB,,,ug/l,na
+81,MICROCYSTIN FR,µg/L,ug/L,,LAB,,,ug/l,na
+82,MICROCYSTIN HYR,µg/L,ug/L,,LAB,,,ug/l,na
+83,MICROCYSTIN LA,µg/L,ug/L,,LAB,,,ug/l,na
+84,MICROCYSTIN LR,µg/L,ug/L,,LAB,,,ug/l,na
+85,MICROCYSTIN LW,µg/L,ug/L,,LAB,,,ug/l,na
+86,MICROCYSTIN LY,µg/L,ug/L,,LAB,,,ug/l,na
+87,MICROCYSTIN MLR,µg/L,ug/L,,LAB,,,ug/l,na
+88,MICROCYSTIN MRR,µg/L,ug/L,,LAB,,,ug/l,na
+89,MICROCYSTIN RR,µg/L,ug/L,,LAB,,,ug/l,na
+90,MICROCYSTIN UNKNOWN,µg/L,ug/L,,LAB,,,ug/l,na
+91,MICROCYSTIN WR,µg/L,ug/L,,LAB,,,ug/l,na
+92,MICROCYSTIN YR,µg/L,ug/L,,LAB,,,ug/l,na
+93,MONOBROMOACETIC ACID,µg/L,ug/L,TOTAL,LAB,,,ug/l,total
+94,MONOCHLOROACETIC ACID,µg/L,ug/L,TOTAL,LAB,,,ug/l,total
+95,"M-XYLENE (1,3-DIMETHYLBENZENE)",mg/L,mg/L,TOTAL,LAB,,,mg/l,total
+96,NICKEL,µg/L,ug/L,DISSOLVED,LAB,,nickel,ug/l,dissolved
+97,NICKEL,µg/L,ug/L,TOTAL,LAB,,nickel,ug/l,total
+98,"NITROGEN, AMMONIA (AS N)",mg/L,mg/L,TOTAL,LAB,,ammonia,mg/l,total
+99,"NITROGEN, KJELDAHL, TOTAL",mg/L,mg/L,TOTAL,LAB,,,mg/l,total
+100,"NITROGEN, NITRATE (AS N)",mg/L,mg/L,TOTAL,LAB,,nitrate,mg/l,total
+101,"NITROGEN, NITRATE-NITRITE",mg/L,mg/L,TOTAL,LAB,,nitrate_nitrite,mg/l,total
+102,"NITROGEN, NITRITE",mg/L,mg/L,TOTAL,LAB,,nitrite,mg/l,total
+103,"NITROGEN, TOTAL",mg/L,mg/L,TOTAL,LAB,,,mg/l,total
+104,"NITROGEN, TOTAL DISSOLVED",mg/L,mg/L,DISSOLVED,LAB,,,mg/l,dissolved
+105,OXIDATION REDUCTION POTENTIAL (ORP),mV,mV,,IN-SITU,,,mv,na
+106,"O-XYLENE (1,2-DIMETHYLBENZENE)",mg/L,mg/L,TOTAL,LAB,,,mg/l,total
+107,P-BROMOFLUOROBENZENE,%,percent,TOTAL,LAB,DBP lab surrogate parameter (not flagged),,percent,total
+108,P-BROMOFLUOROBENZENE,µg/L,ug/L,TOTAL,LAB,DBP lab surrogate parameter (not flagged),,ug/l,total
+109,PH,pH units,pH_units,,IN-SITU,,ph,ph units,total
+110,PH,pH units,pH_units,,LAB,,ph,ph units,total
+111,PH,pH units,pH_units,,UNDETERMINED,Records in DB with undetermined source.,ph,ph units,total
+112,PH FOR COLOR ANALYSIS,pH units,pH_units,,LAB,,,ph units,total
+113,"PHENOLICS, TOTAL RECOVERABLE",mg/L,mg/L,TOTAL,LAB,,,mg/l,total
+117,PHOSPHORUS (FRACTION UNKNOWN),mg/L,mg/L,,LAB,Created for unknown fractions in historic database.,,mg/l,na
+118,"PHOSPHORUS, DISSOLVED",mg/L,mg/L,DISSOLVED,LAB,,,mg/l,dissolved
+119,"PHOSPHORUS, DISSOLVED ORTHOPHOSPHATE (AS P)",mg/L,mg/L,DISSOLVED,LAB,,,mg/l,dissolved
+120,"PHOSPHORUS, TOTAL",mg/L,mg/L,TOTAL,LAB,,phosphorus,mg/l,total
+121,"PHOSPHORUS, TOTAL (AS P)",mg/L,mg/L,TOTAL,LAB,,phosphorus,mg/l,total
+122,"PHOSPHORUS, TOTAL, MIXED FORMS",mg/L,mg/L,TOTAL,LAB,,,mg/l,total
+123,"PHOSPHORUS, TOTAL, MIXED FORMS (FRACTION UNCONFIRMED)",mg/L,mg/L,,LAB,Created for unknown fractions in historic database.,,mg/l,na
+124,PHYCOCYANIN,µg/L,ug/L,,IN-SITU,Measurements collected with Hydrolab.,,ug/l,na
+125,PHYCOCYANIN (PROBE),RFU,RFU,,IN-SITU,Measurements collected with YSI Total Algae sensor.,,rfu,na
+126,PHYCOCYANIN (PROBE),µg/L,ug/L,,IN-SITU,Measurements collected with YSI Total Algae sensor.,,ug/l,na
+127,POTASSIUM,mg/L,mg/L,TOTAL,LAB,,,mg/l,total
+128,POTASSIUM,µg/L,ug/L,TOTAL,LAB,,,ug/l,total
+129,"P-XYLENE (1,4-DIMETHYLBENZENE)",mg/L,mg/L,TOTAL,LAB,,,mg/l,total
+130,SILICA,mg/L,mg/L,TOTAL,LAB,,,mg/l,total
+131,SILVER,µg/L,ug/L,DISSOLVED,LAB,,silver,ug/l,dissolved
+132,SILVER,µg/L,ug/L,TOTAL,LAB,,silver,ug/l,total
+133,SODIUM,mg/L,mg/L,TOTAL,LAB,,,mg/l,total
+134,SODIUM,µg/L,ug/L,TOTAL,LAB,,,ug/l,total
+135,SPECIFIC CONDUCTANCE,µmhos/cm,umhos/cm,,IN-SITU,,,umhos/cm,na
+136,SPECIFIC CONDUCTANCE,µmhos/cm,umhos/cm,TOTAL,LAB,,,umhos/cm,total
+137,SPECIFIC CONDUCTANCE,µmhos/cm,umhos/cm,,UNDETERMINED,Records in DB with undetermined source.,,umhos/cm,na
+138,SPECIFIC CONDUCTANCE,uS/cm,uS/cm,TOTAL,IN-SITU,,,us/cm,total
+139,SPECIFIC CONDUCTANCE,uS/cm,uS/cm,TOTAL,LAB,,,us/cm,total
+140,SPECIFIC CONDUCTANCE,uS/cm,uS/cm,,UNDETERMINED,Records in DB with undetermined source.,,us/cm,total
+141,SULFATE (AS SO4),mg/L,mg/L,TOTAL,LAB,,sulfate,mg/l,total
+142,TEMPERATURE,°C,deg C,,IN-SITU,,,deg c,na
+143,TEMPERATURE,°C,deg C,TOTAL,LAB,,,deg c,total
+144,TEMPERATURE,°C,deg C,,UNDETERMINED,Records in DB with undetermined source.,,deg c,na
+145,TEMPERATURE OF PH ANALYSIS,°C,deg C,TOTAL,LAB,,,deg c,total
+146,"TEMPERATURE, AIR",°C,deg C,,IN-SITU,,,deg c,na
+147,"TEMPERATURE, HOLDING (LAB)",°C,deg C,,LAB,,,deg c,na
+148,TETRACHLOROETHYLENE (PCE),µg/L,ug/L,TOTAL,LAB,,,ug/l,total
+149,TOLUENE-D8,%,percent,TOTAL,LAB,DBP lab surrogate parameter (not flagged),,percent,total
+150,TOLUENE-D8,µg/L,ug/L,TOTAL,LAB,DBP lab surrogate parameter (not flagged),,ug/l,total
+151,TOTAL DISSOLVED SOLIDS,mg/L,mg/L,DISSOLVED,LAB,,total_dissolved_solids,mg/l,dissolved
+152,TOTAL SOLIDS,mg/L,mg/L,TOTAL,LAB,,,mg/l,total
+153,TOTAL SUSPENDED SOLIDS,mg/L,mg/L,TOTAL,LAB,,,mg/l,total
+154,TOTAL VOLATILE SOLIDS,mg/L,mg/L,TOTAL,LAB,,,mg/l,total
+155,TRICHLOROACETIC ACID,µg/L,ug/L,TOTAL,LAB,,,ug/l,total
+156,TRICHLOROETHYLENE (TCE),µg/L,ug/L,TOTAL,LAB,,,ug/l,total
+157,TRUE COLOR,color units,color units,TOTAL,LAB,,,color units,total
+158,TURBIDITY,FNU,FNU,,IN-SITU,,,fnu,na
+159,TURBIDITY,FNU,FNU,TOTAL,LAB,,,fnu,total
+160,TURBIDITY,NTU,NTU,,IN-SITU,,,ntu,na
+161,TURBIDITY,NTU,NTU,,UNDETERMINED,Records in DB with undetermined source.,,ntu,na
+162,TURBIDITY,NTU,NTU,TOTAL,LAB,,,ntu,total
+163,UV 254,1/cm,1/cm,TOTAL,LAB,,,1/cm,total
+164,VINYL CHLORIDE,µg/L,ug/L,TOTAL,LAB,,,ug/l,total
+165,ZINC,µg/L,ug/L,DISSOLVED,LAB,,zinc,ug/l,dissolved
+166,ZINC,µg/L,ug/L,TOTAL,LAB,,zinc,ug/l,total
+167,"POLYCHLORINATED BIPHENYLS (PCBS), TOTAL",pg/L,pg/L,TOTAL,LAB,,,pg/l,total
+168,"POLYCHLORINATED BIPHENYLS (PCBS), VARIOUS",pg/L,pg/L,TOTAL,LAB,Contains all non-total PCB results (concentration). Refer to CHR_CHEMICAL_NAME in CHEM_HISTORY_RESULT table for specific congener/arachlor.,,pg/l,total
+169,"POLYCHLORINATED BIPHENYLS (PCBS), VARIOUS (PERCENT)",%,percent,TOTAL,LAB,Contains all non-total PCB results (percent).,,percent,total
+170,SALINITY,ppt,ppt,,IN-SITU,,,ppt,na

@@ -1,0 +1,15 @@
+stayCALM_col,chem_db_col,insitu_db_col,qa_qc_col
+seg_id,pwlID,pwlID,pwlID
+depth,,,
+fraction,CHEM_PARAMETER_FRACTION,CHEM_PARAMETER_FRACTION,fraction
+units,CHEM_PARAMETER_UNIT_NOSP,CHEM_PARAMETER_UNIT_NOSP,result_unit
+interpreted_qualifiers,CHR_VALIDATOR_QUAL_EXPLN,ISWC_QLFR_NOTE,interpreted_qualifiers
+site_id,CHS_EVENT_SMAS_HISTORY_ID,ISWC_EVENT_SMAS_HISTORY_ID,site_id
+info_type,,,
+parameter,CHEM_PARAMETER_NAME,CHEM_PARAMETER_NAME,chemical_name
+quantitation_limit,CHR_QUANTITATION_LIMIT,,quantitation_limit
+data_provider,CHR_QLFR_SRC,,sample_source
+sample_id,CHS_SAMPLE_NAME,EVENT_SMAS_ID,sys_sample_code
+date,CHS_EVENT_SMAS_SAMPLE_DATE,ISWC_EVENT_SMAS_SAMPLE_DATE,sample_date
+value,CHR_RESULT_VALUE,ISWC_RESULT,result_value
+validator_qualifiers,CHR_VALIDATOR_QUAL,ISWC_INSITU_QUAL,validator_qualifiers

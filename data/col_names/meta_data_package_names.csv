@@ -1,0 +1,15 @@
+Column Name,Column Description
+PWL segment,PWL segment
+Site,Site
+Date,Date of sample collection
+Parameter,Parameter
+Fraction,Fraction
+Result,Result
+Units,Units of the measured Parameter
+Data Flags-Meaning,Narrative description of the data flags
+Data Flags,Data Flags
+Use,Applicable Use for excursion threshold calculation
+WQ Standard,Applicable Standard based on the PWL segment
+Threshold,Applicable threshold
+Excursion,Indication if the result is a excursion or not
+Class,Class of the PWL segment
