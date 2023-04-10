@@ -97,3 +97,25 @@ bap.graph<-function(df){
 
 
 bap<-bap.graph(saw_bugs_sum)
+
+
+# grab_insitu -------------------------------------------------------------
+
+saw_field<-fetch::fetch_field(
+  path = "L:/BWAM Share/SMAS/data/cleaned_files",
+  output = "standard"
+)
+
+insitu<-saw_field$insitu
+
+insitu<-insitu %>%
+  filter(ISWC_EVENT_SMAS_HISTORY_ID %in% sites_saw$SITE_ID)
+
+insitu<-insitu %>%
+  mutate(year = format(ISWC_EVENT_SMAS_SAMPLE_DATE, "%Y")) %>%
+  filter(year >=2019)
+ #merge with sites table
+
+insitu.short<-merge(insitu,sites,
+                    by.x="ISWC_EVENT_SMAS_HISTORY_ID",
+                    by.y="eventSMASHistoryId")
