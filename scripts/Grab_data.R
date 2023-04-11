@@ -13,8 +13,8 @@ sites<-fetch::fetch_sites(
 sites_saw<-read.csv(here::here("data/sawmill_sites.csv"))
 
 saw_bugs<-saw_bugs %>%
-  filter( MSSIH_EVENT_SMAS_HISTORY_ID %in% sites$SITE_ID)
-write.csv(saw_bugs,here::here("data/saw_bugs.csv"))
+  filter( MSSIH_EVENT_SMAS_HISTORY_ID %in% sites_saw$SITE_ID)
+#write.csv(saw_bugs,here::here("data/saw_bugs.csv"))
 
 
 # process_bugs ------------------------------------------------------------
@@ -119,3 +119,7 @@ insitu<-insitu %>%
 insitu.short<-merge(insitu,sites,
                     by.x="ISWC_EVENT_SMAS_HISTORY_ID",
                     by.y="eventSMASHistoryId")
+
+# work up the habitat data ------------------------------------------------
+
+

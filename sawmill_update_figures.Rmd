@@ -1,0 +1,157 @@
+---
+title: "sawmill_update"
+author: "Keleigh Reynolds"
+date: "2023-04-10"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(dplyr)
+
+#run background scripts
+source(here::here("scripts/grab_data.R")) #run this one, but not the stayCALM one
+#source(here::here("scripts/stayCALM_run.R")) #these saved scripts produce .RDS items
+
+#open the .RDS and other files that were made above
+wqs_all<-readRDS(here::here("data/wqs_all.RDS"))
+wqs_violations<-readRDS(here::here("data/wqs_violations.RDS"
+))
+
+bugs<-read.csv(here::here("data/saw_bugs.csv"))
+saw_sites<-read.csv(here::here("data/sawmill_sites.csv"))
+
+#set up table function
+table.f<-function(df,x,y){
+  library(flextable)
+  tl<-flextable(df) %>% font(i = NULL, j = NULL, fontname="Arial", part = "all") %>% 
+    theme_zebra()
+  tl<-fontsize(tl,size = 8,part = "all")
+  tl<-autofit(tl)
+  tl<-set_table_properties(tl,layout="autofit")
+  tl<-align(tl, i = NULL, j =(x:y) , align = "center", part = "all")
+  tl
+}
+
+```
+
+## Sawmill update
+
+```{r bap-graph}
+bap
+```
+
+```{r habitat-figures}
+
+habit.hma$Date <-habit.hma$HFDH_EVENT_SMAS_SAMPLE_DATE
+#call the function
+tl<-table.f(habit.hma[,c(57,1,2,65,4:16,37,38)],2,18)
+
+#this part might have to be figured out later, with a larger caption/table function? Not sure yet.
+
+
+
+tl<-tl%>%
+  #width(j=1:18, width=0.4)%>%
+  #width(j=c(4,5,10,11), width = 0.5)%>%
+  #width(j=c(17), width=0.6)%>%
+  #width(j=1, width=0.8) %>% 
+  fit_to_width(max_width = 10.5) %>% 
+  flextable::merge_v(j=c("PWL")) %>% 
+  fix_border_issues() %>% 
+  theme_zebra() %>% 
+  flextable::bg(j=1,part = "body",bg = "white") %>% 
+  flextable::border(part = "body",border.bottom = officer::fp_border(color="grey")) %>% 
+  flextable::border(part = "body",j=1,border.right = officer::fp_border(color = "grey")) %>% 
+  fontsize(size=8, part = "all") %>% 
+  autofit()
+  
+
+tl
+
+```
+
+```{r hma-figure}
+
+hma_fig<-HMA_counts %>% 
+  select(PWL, Site,"HMA \n Score") %>% 
+  rename(score = "HMA \n Score") %>% 
+  group_by(Site) %>% 
+  summarise( mean = mean(score))
+
+hma_fig2<-HMA_counts %>% 
+  select(PWL, Site,Assessment,"HMA \n Score") %>% 
+  rename(score = "HMA \n Score") %>% 
+  group_by(Site) %>% 
+  mutate(mean = mean(score),
+         assessment_2 = case_when(
+           mean > 80 ~ "Natural",
+           mean > 70 & mean < 80 ~ "Altered",
+           mean > 60 & mean < 70 ~ "Moderate",
+           mean  < 60 ~ "Severe"
+         ))
+
+hma_fig<-merge(hma_fig,sites_saw,
+               by.x="Site",
+               by.y = "SITE_ID")
+hma_fig$Site<-forcats::fct_reorder(hma_fig$Site,hma_fig$order)
+
+
+  h<-ggplot(hma_fig, aes(Site,y= mean)) + 
+  geom_bar(stat="identity",fill ="#00B0F6")
+
+  l<-length(unique(hma_fig$Site))
+  
+  labels.df <- data.frame(
+    label = c("Natural", "Altered", "Moderate", "Severe"),
+    x = max(l)+1,
+    y = c(85, 75, 65, 55),
+    stringsAsFactors = FALSE)
+  
+h2<-h+theme_bw() +
+  theme(
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),#remove gridlines
+    axis.title.y = element_text(
+      size = 12,
+      family = "serif",
+      face = "bold"),
+    axis.title.x = element_blank(),
+    axis.text.x = element_text(
+      angle = 45,
+      hjust = 1,
+      size = 10,
+      family = "serif"), #rotate text angle
+    plot.margin = unit(c(0.5, 0.5, 0.5, 0.5), "cm"),
+    legend.position = c(.11, .81) + #reduces white space around plot edges
+      geom_label(aes(x = .5, y = .5), label = "test")
+  )+
+  geom_hline(yintercept=60,linetype="dashed",color="red3")+
+  geom_hline(yintercept=70,linetype="dashed",color="orange3")+
+  geom_hline(yintercept=80,linetype="dashed",color="gold")+
+  theme(legend.title=element_blank(),legend.margin=margin(10,10,10,10),legend.key = element_rect(colour = NA, fill = NA),legend.background=element_blank())+
+  ylab("Habitat Model Affinity (HMA) Score")+xlab("Site")+ geom_text(data = labels.df, 
+                                            aes(max(l)+1.5, 
+                                                y, label = label), 
+                                            color = "black")+
+  expand_limits(x=c(0:max(l+3)))
+h2
+
+```
+
+```{r chemistry-figures}
+
+app_standards<-wqs_violations$prep_data
+
+app_standards<-app_standards %>% 
+  select(seg_id,parameter,fraction,units, narrative, direction) %>% 
+  distinct() %>% 
+  arrange(seg_id)
+
+
+
+
+```
+
+
