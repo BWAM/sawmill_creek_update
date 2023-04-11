@@ -100,7 +100,7 @@ colnames_smas_insitu(insitu.short)
 
 #bind the two into one df
 #first fix the date for insitu.good
-insitu.good$date<-as.Date(insitu.good$date,"%m/%d/%Y")
+insitu.good$date<-format(insitu.good$date,"%m/%d/%Y")
 
 all.chemistry<-rbind(chem.good,insitu.good)
 

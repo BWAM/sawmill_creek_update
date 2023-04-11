@@ -156,3 +156,45 @@ habit.hma<-habit.hma %>%
 HMA_counts<-habit.hma%>%
   rename(Assessment="HMA \n Assess.")
 
+
+# habitat_figure ----------------------------------------------------------
+hma.graph<-function(df){
+  l<-length(df$Site)
+
+  labels.df <- data.frame(
+    label = c("Natural", "Altered", "Moderate", "Severe"),
+    x = max(l)+1,
+    y = c(85, 75, 65, 55),
+    stringsAsFactors = FALSE)
+
+  ggplot(df, aes(factor(Site),`HMA
+                      Assess.`, fill = year)) +
+    geom_bar(stat="identity", position = "dodge")+
+  theme_bw() +
+  theme(
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),#remove gridlines
+    axis.title.y = element_text(
+      size = 12,
+      family = "serif",
+      face = "bold"),
+    axis.title.x = element_blank(),
+    axis.text.x = element_text(
+      angle = 45,
+      hjust = 1,
+      size = 10,
+      family = "serif"), #rotate text angle
+    plot.margin = unit(c(0.5, 0.5, 0.5, 0.5), "cm"),
+    legend.position = c(.11, .81) + #reduces white space around plot edges
+      geom_label(aes(x = .5, y = .5), label = "test")
+  )+
+  geom_hline(yintercept=60,linetype="dashed",color="grey")+
+  geom_hline(yintercept=70,linetype="dashed",color="grey")+
+  geom_hline(yintercept=80,linetype="dashed",color="grey")+
+  theme(legend.title=element_blank(),legend.margin=margin(10,10,10,10),legend.key = element_rect(colour = NA, fill = NA),legend.background=element_blank())+
+  ylab("HMA Score")+xlab("Year")+ geom_text(data = labels.df, aes(max(l)+1, y, label = label), color = "black")+
+  expand_limits(y=c(0,10),x=c(0:max(l+2)))
+
+
+}
+
