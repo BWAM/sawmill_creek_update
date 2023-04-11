@@ -152,8 +152,15 @@ app_standards<-app_standards %>%
 ```
 
 ```{r chem-figs}
+options(scipen = 999)
 raw<-wqs_violations$raw_data
 
+raw<-raw %>% 
+  group_by(seg_id,parameter,fraction,units) %>% 
+  summarize(n = n(),
+            mean = mean (value,na.rm = TRUE),
+            sd = sd(value, na.rm = TRUE)) %>% 
+  mutate_if(is.numeric,round, 2)
 
 
 ```
