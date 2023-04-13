@@ -13,6 +13,8 @@ library(dplyr)
 #run background scripts
 source(here::here("scripts/grab_data.R")) #run this one, but not the stayCALM one
 #source(here::here("scripts/stayCALM_run.R")) #these saved scripts produce .RDS items
+#source(here::here("scripts/state_wide_chem.R")) #this queries and creates statewide quantiles for context and grabs the 
+
 
 #open the .RDS and other files that were made above
 wqs_all<-readRDS(here::here("data/wqs_all.RDS"))

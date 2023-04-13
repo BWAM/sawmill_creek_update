@@ -108,6 +108,8 @@ saw_field<-fetch::fetch_field(
 
 insitu<-saw_field$insitu
 
+insitu$year<-format(insitu$ISWC_EVENT_SMAS_SAMPLE_DATE,"%Y")
+
 insitu<-insitu %>%
   filter(ISWC_EVENT_SMAS_HISTORY_ID %in% sites_saw$SITE_ID)
 
