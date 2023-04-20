@@ -122,6 +122,5 @@ insitu.short<-merge(insitu,sites,
                     by.x="ISWC_EVENT_SMAS_HISTORY_ID",
                     by.y="eventSMASHistoryId")
 
-# work up the habitat data ------------------------------------------------
 
 

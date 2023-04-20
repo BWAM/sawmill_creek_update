@@ -146,11 +146,22 @@ h2
 app_standards<-wqs_violations$prep_data
 
 app_standards<-app_standards %>% 
-  select(seg_id,parameter,fraction,units, narrative, direction) %>% 
+  select(seg_id,parameter,fraction,units, narrative) %>% 
   distinct() %>% 
   arrange(seg_id)
 
+app_table<-table.f(app_standards,2,max(ncol(app_standards)))
+app_table<- app_table %>% 
+  flextable::merge_v(j=c("seg_id")) %>% 
+  fix_border_issues() %>% 
+  theme_zebra() %>% 
+  flextable::bg(j=1,part = "body",bg = "white") %>% 
+  flextable::border(part = "body",border.bottom = officer::fp_border(color="grey")) %>% 
+  flextable::border(part = "body",j=1,border.right = officer::fp_border(color = "grey")) %>% 
+  fontsize(size=8, part = "all") %>% 
+  autofit()
 
+app_table
 ```
 
 ```{r chem-figs}
@@ -164,6 +175,123 @@ raw<-raw %>%
             sd = sd(value, na.rm = TRUE)) %>% 
   mutate_if(is.numeric,round, 2)
 
+saw.chem.all_sum<-saw.chem.all_merge %>% 
+    group_by(pwlID,CHEM_PARAMETER_NAME,
+             CHEM_PARAMETER_FRACTION,
+             CHEM_PARAMETER_UNIT) %>% 
+  summarize(n = n(),
+            mean = mean (CHR_RESULT_VALUE,na.rm = TRUE),
+            sd = sd(CHR_RESULT_VALUE, na.rm = TRUE)) %>% 
+  mutate_if(is.numeric,round, 2)
+
+sbu.chem.statewide<-sbu.chem.statewide %>% 
+  rename(sw_mean = mean,
+         sw_sd = sd,
+         sw_n = n )
+
+raw_context<-merge(saw.chem.all_sum,sbu.chem.statewide,
+                   by = c("CHEM_PARAMETER_NAME",
+                          "CHEM_PARAMETER_FRACTION",
+                          "CHEM_PARAMETER_UNIT"))
+
+wqs_saw<-wqs_violations$prep_data %>% 
+  select(seg_id,class,class_type) %>% 
+  distinct()
 
 ```
+
+```{r chem-graphs}
+
+  # create list of chmistry's in data to loop over 
+   df<-saw.chem.all_merge %>% 
+    arrange(CHEM_PARAMETER_NAME)
+   
+ chem_list <- unique(df$CHEM_PARAMETER_NAME)
+  l<-length(chem_list)
+  df$pwlID<-as.factor(df$pwlID)
+  
+  
+  for (i in seq_along(chem_list)) { 
+    temp.statewide<-subset(sbu.chem.statewide,sbu.chem.statewide$CHEM_PARAMETER_NAME==chem_list[i])
+
+    temp.chem<-subset(df,df$CHEM_PARAMETER_NAME==chem_list[i])
+    df.1<-subset(df, df$CHEM_PARAMETER_NAME==chem_list[i])
+    
+    df.1$pwlID<-droplevels(df.1$pwlID)
+    y=tail(df.1$pwlID) #get the number of levels needed for each one
+  
+    plot <- 
+      ggplot(df.1,
+             aes(pwlID,CHR_RESULT_VALUE,color=pwlID,drop=TRUE))+
+      
+      geom_boxplot() +
+
+      #scale_shape_manual(name="PWL Segment ID",values = 0:max(l))+
+      
+      theme(axis.text.x = element_text(angle = 60, hjust = 1))+
+      theme(legend.position="right") + 
+      
+      scale_y_log10(paste(stringr::str_to_title(df.1$CHEM_PARAMETER_NAME[df.1$CHEM_PARAMETER_NAME==chem_list[i]]), df.1$CHEM_PARAMETER_UNIT[df.1$CHEM_PARAMETER_NAME==chem_list[i]])) + 
+      xlab("PWL ID")+
+       geom_hline(yintercept=temp.statewide$q95,color="grey53")+
+       geom_hline(yintercept=temp.statewide$q75,color="grey53")+
+       geom_hline(yintercept=temp.statewide$q25,color="grey53")+
+      expand_limits(x=nlevels(y)+3)+
+       annotate(geom="text", label=paste("95th",temp.statewide$q95,sep="-"),x=nlevels(y)+2, y=temp.statewide$q95, vjust=-1,color="grey61",size=3)+
+       annotate(geom="text", label=paste("75th",temp.statewide$q75,sep="-"), x=nlevels(y)+2, y=temp.statewide$q75, vjust=-1,color="grey61",size=3)+
+       annotate(geom="text", label=paste("25th",temp.statewide$q25,sep="-"), x=nlevels(y)+2, y=temp.statewide$q25, vjust=-1,color="grey61",size=3)+
+      theme(legend.title=element_blank(),legend.margin=margin(10,10,10,10),legend.key = element_rect(colour = NA, fill = NA),legend.background=element_blank())+
+      coord_cartesian(clip = "off")
+
+  print(plot)
+  }
+    
+
+
+```
+```{r insitu-figures}
+ df<-insitu.short %>% 
+    arrange(CHEM_PARAMETER_NAME)
+   
+ chem_list <- unique(df$CHEM_PARAMETER_NAME)
+  l<-length(chem_list)
+  df$pwlID<-as.factor(df$pwlID)
+  
+  
+  for (i in seq_along(chem_list)) { 
+    temp.statewide<-subset(sbu.insitu.statewide,sbu.insitu.statewide$CHEM_PARAMETER_NAME==chem_list[i])
+
+    temp.chem<-subset(df,df$CHEM_PARAMETER_NAME==chem_list[i])
+    df.1<-subset(df, df$CHEM_PARAMETER_NAME==chem_list[i])
+    
+    df.1$pwlID<-droplevels(df.1$pwlID)
+    y=tail(df.1$pwlID) #get the number of levels needed for each one
+  
+    plot <- 
+      ggplot(df.1,
+             aes(pwlID,ISWC_RESULT,color=pwlID,drop=TRUE))+
+      
+      geom_boxplot() +
+
+      #scale_shape_manual(name="PWL Segment ID",values = 0:max(l))+
+      
+      theme(axis.text.x = element_text(angle = 60, hjust = 1))+
+      theme(legend.position="right") + 
+      
+      scale_y_log10(paste(stringr::str_to_title(df.1$CHEM_PARAMETER_NAME[df.1$CHEM_PARAMETER_NAME==chem_list[i]]), df.1$CHEM_PARAMETER_UNIT[df.1$CHEM_PARAMETER_NAME==chem_list[i]])) + 
+      xlab("PWL ID")+
+       geom_hline(yintercept=temp.statewide$q95,color="grey53")+
+       geom_hline(yintercept=temp.statewide$q75,color="grey53")+
+       geom_hline(yintercept=temp.statewide$q25,color="grey53")+
+      expand_limits(x=nlevels(y)+3)+
+       annotate(geom="text", label=paste("95th",temp.statewide$q95,sep="-"),x=nlevels(y)+2, y=temp.statewide$q95, vjust=-1,color="grey61",size=3)+
+       annotate(geom="text", label=paste("75th",temp.statewide$q75,sep="-"), x=nlevels(y)+2, y=temp.statewide$q75, vjust=-1,color="grey61",size=3)+
+       annotate(geom="text", label=paste("25th",temp.statewide$q25,sep="-"), x=nlevels(y)+2, y=temp.statewide$q25, vjust=-1,color="grey61",size=3)+
+      theme(legend.title=element_blank(),legend.margin=margin(10,10,10,10),legend.key = element_rect(colour = NA, fill = NA),legend.background=element_blank())+
+      coord_cartesian(clip = "off")
+
+  print(plot)
+  }
+```
+
 
